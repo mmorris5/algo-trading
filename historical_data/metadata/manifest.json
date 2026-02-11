@@ -1,0 +1,11 @@
+{
+  "dataset_name": "russell1000_daily_ohlcv",
+  "universe": "Russell 1000 constituents as of 2026-02-01",
+  "membership": "static",
+  "survivorship_bias": true,
+  "history_start": "2010-01-01",
+  "history_end": null,
+  "bar_schema": "ohlcv-1d",
+  "source": "databento",
+  "notes": "Universe frozen intentionally. Historical index membership not applied."
+}

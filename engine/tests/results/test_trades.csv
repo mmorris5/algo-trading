@@ -1,0 +1,2 @@
+date,symbol,side,qty,price,commission,slippage_bps,fill_model
+2024-07-02,AAPL,BUY,462,216.15,0.0,0.0,next_open
