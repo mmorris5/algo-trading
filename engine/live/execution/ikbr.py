@@ -93,7 +93,7 @@ class IBKRExecutor:
         order = Order(
             action=side,
             orderType="MKT",
-            tif="DAY",              
+            tif="OPG",              
             totalQuantity=qty,
         )
         trade = self.ib.placeOrder(contract, order)
