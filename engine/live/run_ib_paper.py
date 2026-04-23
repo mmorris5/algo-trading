@@ -204,6 +204,7 @@ def run_ib_paper(
 
         outdir = Path("live_results")
         outdir.mkdir(parents=True, exist_ok=True)
+        fills_path = outdir / "fills.csv"
         fills_df = pd.DataFrame([
             {
                 "symbol": f.symbol,
@@ -213,13 +214,15 @@ def run_ib_paper(
             }
             for f in fills
         ])
-        fills_df.to_csv(outdir / "fills.csv", index=False)
+        if not fills_df.empty:
+            write_header = (not fills_path.exists()) or fills_path.stat().st_size == 0
+            fills_df.to_csv(fills_path, mode="a", header=write_header, index=False)
 
         print("Fills:")
         for f in fills:
             print(f"  {f.side} {f.qty} {f.symbol} @ {f.avg_fill_price:.4f}")
 
-        print(f"Wrote fills to: {outdir.resolve() / 'fills.csv'}")
+        print(f"Wrote fills to: {fills_path.resolve()}")
 
 
 def main() -> None:
